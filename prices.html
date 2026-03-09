@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коллекции | ALTYN JEWELRY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #fcf9f7 0%, #ffffff 100%);
+            color: #2c2c2c;
+        }
+
+        :root {
+            --gold: #C5A059;
+            --gold-light: #E5C28E;
+            --gold-dark: #A67C4E;
+            --black: #1E1E1E;
+            --cream: #FDF7F0;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--gold);
+            font-family: 'Times New Roman', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo span {
+            color: white;
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            padding: 5px 0;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* Герой страницы */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%),
+                        url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1600') center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '✦';
+            position: absolute;
+            font-size: 300px;
+            color: rgba(197, 160, 89, 0.1);
+            bottom: -100px;
+            right: -50px;
+            transform: rotate(20deg);
+        }
+
+        .page-hero h1 {
+            font-size: 56px;
+            font-family: 'Times New Roman', serif;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            margin-top: 10px;
+            color: var(--gold-light);
+        }
+
+        /* Навигация по категориям */
+        .category-nav {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 80px;
+            z-index: 99;
+        }
+
+        .category-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-link {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: 0.3s;
+            background: #f5f5f5;
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            background: var(--gold);
+            color: white;
+        }
+
+        /* Категории */
+        .category-section {
+            padding: 60px 0;
+            scroll-margin-top: 140px;
+        }
+
+        .category-title {
+            font-size: 42px;
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .category-title i {
+            color: var(--gold);
+            font-size: 36px;
+        }
+
+        .category-title span {
+            font-size: 18px;
+            color: var(--gold);
+            margin-left: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Карточки товаров */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: 0.4s;
+            position: relative;
+            border: 1px solid rgba(197,160,89,0.2);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 45px rgba(197,160,89,0.25);
+            border-color: var(--gold);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(197,160,89,0.3);
+        }
+
+        .product-badge.hit {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .product-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .quick-view {
+            background: white;
+            color: var(--black);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+
+        .product-card:hover .quick-view {
+            transform: translateY(0);
+        }
+
+        .product-info {
+            padding: 25px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff, #fcf9f7);
+        }
+
+        .product-category {
+            color: var(--gold);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-family: 'Times New Roman', serif;
+            color: var(--black);
+        }
+
+        .product-desc {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--gold);
+            margin: 15px 0;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .product-price small {
+            font-size: 14px;
+            color: #999;
+            font-weight: 300;
+        }
+
+        .btn-add {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 2px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-add:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-add.added {
+            background: #27ae60;
+            border-color: #27ae60;
+            color: white;
+        }
+
+        /* Таблица размеров */
+        .size-table {
+            margin-top: 60px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .size-table h3 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--black);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th {
+            background: var(--black);
+            color: var(--gold);
+            padding: 15px;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        table tr:hover {
+            background: #fcf9f7;
+        }
+
+        /* Уведомление */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transform: translateX(400px);
+            transition: 0.3s;
+            z-index: 1001;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* Футер */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+            border-top: 3px solid var(--gold);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #999;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 20px;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .category-links {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                ALTYN<span>jewelry</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="prices.html">Коллекции</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="cart.html">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div>
+            <h1>Коллекции ALTYN</h1>
+            <p>Изысканные украшения ручной работы</p>
+        </div>
+    </section>
+
+    <div class="category-nav">
+        <div class="container">
+            <div class="category-links">
+                <a href="#rings" class="category-link active">Кольца</a>
+                <a href="#earrings" class="category-link">Серьги</a>
+                <a href="#necklaces" class="category-link">Подвески</a>
+                <a href="#bracelets" class="category-link">Браслеты</a>
+                <a href="#watches" class="category-link">Часы</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Кольца -->
+        <section id="rings" class="category-section">
+            <h2 class="category-title">
+                <i class="fas fa-gem"></i>
+                Кольца
+                <span>18 изделий</span>
+            </h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">NEW</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800" alt="Кольцо с бриллиантом">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Кольца</div>
+                        <h3>Императорское кольцо</h3>
+                        <div class="product-desc">Золото 585, бриллиант 0.3 карата</div>
+                        <div class="product-price">450 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(1, 'Императорское кольцо', 450000, 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge hit">HIT</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1598560917505-59a3ad23d1fc?w=800" alt="Обручальное кольцо">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Кольца</div>
+                        <h3>Обручальное кольцо</h3>
+                        <div class="product-desc">Золото 585, классика</div>
+                        <div class="product-price">125 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(2, 'Обручальное кольцо', 125000, 'https://images.unsplash.com/photo-1598560917505-59a3ad23d1fc?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800" alt="Кольцо с сапфиром">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Кольца</div>
+                        <h3>Кольцо с сапфиром</h3>
+                        <div class="product-desc">Платина, сапфир, бриллианты</div>
+                        <div class="product-price">890 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(3, 'Кольцо с сапфиром', 890000, 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Серьги -->
+        <section id="earrings" class="category-section">
+            <h2 class="category-title">
+                <i class="fas fa-gem"></i>
+                Серьги
+                <span>15 изделий</span>
+            </h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">NEW</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800" alt="Серьги с сапфирами">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Серьги</div>
+                        <h3>Сапфировые серьги</h3>
+                        <div class="product-desc">Белое золото, сапфиры, бриллианты</div>
+                        <div class="product-price">680 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(4, 'Сапфировые серьги', 680000, 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge hit">HIT</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1629224316810-9d8805b95b3f?w=800" alt="Серьги-гвоздики">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Серьги</div>
+                        <h3>Серьги-гвоздики</h3>
+                        <div class="product-desc">Золото 585, бриллианты 0.2 карата</div>
+                        <div class="product-price">245 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(5, 'Серьги-гвоздики', 245000, 'https://images.unsplash.com/photo-1629224316810-9d8805b95b3f?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1588444837495-c6cfeb53f16d?w=800" alt="Серьги-люстры">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Серьги</div>
+                        <h3>Серьги-люстры</h3>
+                        <div class="product-desc">Золото 585, изумруды</div>
+                        <div class="product-price">1 250 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(6, 'Серьги-люстры', 1250000, 'https://images.unsplash.com/photo-1588444837495-c6cfeb53f16d?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Подвески -->
+        <section id="necklaces" class="category-section">
+            <h2 class="category-title">
+                <i class="fas fa-gem"></i>
+                Подвески и кулоны
+                <span>12 изделий</span>
+            </h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800" alt="Подвеска с жемчугом">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Подвески</div>
+                        <h3>Подвеска с жемчугом</h3>
+                        <div class="product-desc">Жемчуг Таити, золото 585</div>
+                        <div class="product-price">320 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(7, 'Подвеска с жемчугом', 320000, 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge">NEW</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=800" alt="Кулон с бриллиантом">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Подвески</div>
+                        <h3>Кулон с бриллиантом</h3>
+                        <div class="product-desc">Платина, бриллиант 0.5 карата</div>
+                        <div class="product-price">520 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(8, 'Кулон с бриллиантом', 520000, 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800" alt="Крестик">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Подвески</div>
+                        <h3>Крестик с распятием</h3>
+                        <div class="product-desc">Золото 585, чернение</div>
+                        <div class="product-price">85 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(9, 'Крестик с распятием', 85000, 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Браслеты -->
+        <section id="bracelets" class="category-section">
+            <h2 class="category-title">
+                <i class="fas fa-gem"></i>
+                Браслеты
+                <span>10 изделий</span>
+            </h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800" alt="Браслет плетеный">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Браслеты</div>
+                        <h3>Венецианское плетение</h3>
+                        <div class="product-desc">Золото 585, 20 см</div>
+                        <div class="product-price">275 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(10, 'Венецианское плетение', 275000, 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge hit">HIT</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800" alt="Браслет с бриллиантами">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Браслеты</div>
+                        <h3>Браслет с бриллиантами</h3>
+                        <div class="product-desc">Белое золото, бриллианты</div>
+                        <div class="product-price">890 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(11, 'Браслет с бриллиантами', 890000, 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=800" alt="Браслет-змейка">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">Быстрый просмотр</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Браслеты</div>
+                        <h3>Браслет-змейка</h3>
+                        <div class="product-desc">Красное золото, фианиты</div>
+                        <div class="product-price">345 000 ₸</div>
+                        <button class="btn-add" onclick="addToCart(12, 'Браслет-змейка', 345000, 'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=800')">
+                            <i class="fas fa-shopping-cart"></i> В корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Таблица размеров -->
+        <div class="size-table">
+            <h3><i class="fas fa-ruler"></i> Таблица размеров колец</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Российский размер</th>
+                        <th>Международный</th>
+                        <th>Диаметр (мм)</th>
+                        <th>Окружность (мм)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>16</td>
+                        <td>49</td>
+                        <td>15.7</td>
+                        <td>49.3</td>
+                    </tr>
+                    <tr>
+                        <td>16.5</td>
+                        <td>50</td>
+                        <td>16.1</td>
+                        <td>50.6</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>51</td>
+                        <td>16.5</td>
+                        <td>51.8</td>
+                    </tr>
+                    <tr>
+                        <td>17.5</td>
+                        <td>52</td>
+                        <td>17.0</td>
+                        <td>53.4</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>53</td>
+                        <td>17.4</td>
+                        <td>54.7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Уведомление о добавлении в корзину -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i> Товар добавлен в корзину
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>ALTYN JEWELRY</h4>
+                    <ul>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="#">История</a></li>
+                        <li><a href="#">Сертификаты</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Коллекции</h4>
+                    <ul>
+                        <li><a href="#rings">Кольца</a></li>
+                        <li><a href="#earrings">Серьги</a></li>
+                        <li><a href="#necklaces">Подвески</a></li>
+                        <li><a href="#bracelets">Браслеты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Покупателям</h4>
+                    <ul>
+                        <li><a href="#">Доставка</a></li>
+                        <li><a href="#">Оплата</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                        <li><a href="#">Уход</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Алматы, ул. Фурманова, 100</li>
+                        <li><i class="fas fa-phone"></i> +7 (727) 345-67-89</li>
+                        <li><i class="fas fa-envelope"></i> info@altyn.kz</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ALTYN JEWELRY. Ювелирный салон в Алматы</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Функция добавления в корзину
+        function addToCart(id, name, price, image) {
+            // Получаем текущую корзину из localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Проверяем, есть ли уже такой товар
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+            
+            // Сохраняем в localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Показываем уведомление
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            
+            // Меняем текст кнопки
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Добавлено';
+            button.classList.add('added');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('added');
+            }, 2000);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+            
+            // Обновляем счетчик в корзине (если есть)
+            updateCartCount();
+        }
+        
+        // Функция обновления счетчика корзины
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            // Можно добавить счетчик в шапку
+            const cartLink = document.querySelector('a[href="cart.html"]');
+            if (cartLink) {
+                let countSpan = cartLink.querySelector('.cart-count');
+                if (!countSpan && totalItems > 0) {
+                    countSpan = document.createElement('span');
+                    countSpan.className = 'cart-count';
+                    countSpan.style.cssText = `
+                        background: var(--gold);
+                        color: #0a0a0a;
+                        border-radius: 50%;
+                        padding: 2px 8px;
+                        font-size: 12px;
+                        margin-left: 5px;
+                        font-weight: bold;
+                    `;
+                    cartLink.appendChild(countSpan);
+                }
+                if (countSpan) {
+                    countSpan.textContent = totalItems;
+                }
+            }
+        }
+        
+        // Вызываем при загрузке страницы
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+        
+        // Плавный скролл к категориям
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 140,
+                    behavior: 'smooth'
+                });
+                
+                // Обновляем активный класс
+                document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Подсвечиваем активную категорию при скролле
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.category-section');
+            const navLinks = document.querySelectorAll('.category-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTYN | Премиум ювелирный салон в Алматы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fcf9f7;
+            color: #2c2c2c;
+        }
+
+        :root {
+            --gold: #C5A059;
+            --dark-gold: #A67C4E;
+            --black: #1E1E1E;
+            --cream: #FDF7F0;
+        }
+
+        /* Шапка */
+        header {
+            background: #0a0a0a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--gold);
+            font-family: 'Times New Roman', serif;
+        }
+
+        .logo span {
+            color: white;
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* Главный экран */
+        .hero {
+            height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gold);
+            color: #0a0a0a;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b38f4a;
+            transform: scale(1.05);
+        }
+
+        /* Заголовки */
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin: 50px 0 30px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .section-title span {
+            display: block;
+            font-size: 16px;
+            color: var(--gold);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Каталог */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(197,160,89,0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 24px;
+            color: var(--gold);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .btn-card {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-card:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        /* Навигационная карта */
+        .map-section {
+            background: #0a0a0a;
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .map-section .section-title {
+            color: white;
+        }
+
+        .map-container {
+            position: relative;
+            border: 3px solid var(--gold);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .map-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .map-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .map-area:hover {
+            background: rgba(197, 160, 89, 0.2);
+        }
+
+        .map-area span {
+            background: rgba(0,0,0,0.8);
+            color: var(--gold);
+            padding: 10px 20px;
+            border-radius: 30px;
+            opacity: 0;
+            transition: 0.3s;
+            border: 1px solid var(--gold);
+        }
+
+        .map-area:hover span {
+            opacity: 1;
+        }
+
+        /* Футер */
+        footer {
+            background: #0a0a0a;
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+            border-top: 3px solid var(--gold);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #999;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                ALTYN<span>jewelry</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="prices.html">Коллекции</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="cart.html">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ALTYN JEWELRY</h1>
+            <p>Казахстанское ювелирное искусство</p>
+            <a href="prices.html" class="btn">Смотреть коллекцию</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">
+            Новые поступления
+            <span>эксклюзивные изделия</span>
+        </h2>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800" alt="Кольцо">
+                <div class="product-info">
+                    <h3>Кольцо с бриллиантом</h3>
+                    <div class="price">450 000 ₸</div>
+                    <a href="cart.html" class="btn-card">В корзину</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800" alt="Серьги">
+                <div class="product-info">
+                    <h3>Серьги с сапфирами</h3>
+                    <div class="price">680 000 ₸</div>
+                    <a href="cart.html" class="btn-card">В корзину</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800" alt="Подвеска">
+                <div class="product-info">
+                    <h3>Подвеска с жемчугом</h3>
+                    <div class="price">320 000 ₸</div>
+                    <a href="cart.html" class="btn-card">В корзину</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800" alt="Браслет">
+                <div class="product-info">
+                    <h3>Браслет плетеный</h3>
+                    <div class="price">275 000 ₸</div>
+                    <a href="cart.html" class="btn-card">В корзину</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">
+                Наши коллекции
+                <span>нажмите на фото для перехода</span>
+            </h2>
+            
+            <div class="map-container">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1600" alt="Коллекции" class="map-image" usemap="#collection-map">
+                <map name="collection-map">
+                    <area shape="rect" coords="0,0,400,400" href="prices.html#rings" alt="Кольца">
+                    <area shape="rect" coords="400,0,800,400" href="prices.html#earrings" alt="Серьги">
+                    <area shape="rect" coords="800,0,1200,400" href="prices.html#necklaces" alt="Подвески">
+                    <area shape="rect" coords="0,400,600,800" href="prices.html#bracelets" alt="Браслеты">
+                    <area shape="rect" coords="600,400,1200,800" href="prices.html#watches" alt="Часы">
+                </map>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>ALTYN JEWELRY</h4>
+                    <ul>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="#">История</a></li>
+                        <li><a href="#">Сертификаты</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Коллекции</h4>
+                    <ul>
+                        <li><a href="prices.html#rings">Кольца</a></li>
+                        <li><a href="prices.html#earrings">Серьги</a></li>
+                        <li><a href="prices.html#necklaces">Подвески</a></li>
+                        <li><a href="prices.html#bracelets">Браслеты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Покупателям</h4>
+                    <ul>
+                        <li><a href="#">Доставка по Казахстану</a></li>
+                        <li><a href="#">Оплата</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                        <li><a href="#">Уход</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>Алматы, ул. Фурманова, 100</li>
+                        <li>+7 (727) 345-67-89</li>
+                        <li>info@altyn.kz</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ALTYN JEWELRY. Ювелирный салон в Алматы</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

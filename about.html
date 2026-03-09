@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | ALTYN JEWELRY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fcf9f7;
+            color: #2c2c2c;
+        }
+
+        :root {
+            --gold: #C5A059;
+            --dark-gold: #A67C4E;
+            --black: #1E1E1E;
+        }
+
+        header {
+            background: #0a0a0a;
+            padding: 15px 0;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--gold);
+            font-family: 'Times New Roman', serif;
+        }
+
+        .logo span {
+            color: white;
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1531999850880-5c15b8d9f8f3?w=1600') center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .advantages-list {
+            list-style: none;
+            margin: 40px 0;
+        }
+
+        .advantages-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .advantages-list li i {
+            color: var(--gold);
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        footer {
+            background: #0a0a0a;
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+            border-top: 3px solid var(--gold);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                ALTYN<span>jewelry</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="prices.html">Коллекции</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="cart.html">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h1>О нашем салоне</h1>
+    </section>
+
+    <div class="container section">
+        <div class="about-grid">
+            <div class="about-image">
+            <div class="about-text">
+                <h2>ALTYN JEWELRY</h2>
+                <p>Ювелирный салон ALTYN работает на рынке Казахстана с 2010 года. За это время мы заслужили доверие тысяч клиентов благодаря безупречному качеству и индивидуальному подходу.</p>
+                <p>Мы сотрудничаем напрямую с производителями из Европы и ОАЭ, что позволяет нам предлагать лучшие цены в Казахстане. Все наши изделия имеют сертификаты качества.</p>
+                <p>В нашем салоне вы найдете уникальные украшения ручной работы, а также сможете заказать изделие по собственному дизайну.</p>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div>лет на рынке</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div>довольных клиентов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div>уникальных изделий</div>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin: 40px 0; font-family: 'Times New Roman', serif;">Наши преимущества</h2>
+        
+        <ul class="advantages-list">
+            <li><i class="fas fa-gem"></i> Только сертифицированные драгоценные камни</li>
+            <li><i class="fas fa-truck"></i> Бесплатная доставка по Казахстану</li>
+            <li><i class="fas fa-shield-alt"></i> Пожизненная гарантия на все изделия</li>
+            <li><i class="fas fa-paint-brush"></i> Изготовление украшений на заказ</li>
+            <li><i class="fas fa-star"></i> Бесплатная чистка и полировка</li>
+            <li><i class="fas fa-credit-card"></i> Рассрочка и кредит без переплаты</li>
+        </ul>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>ALTYN JEWELRY</h4>
+                    <ul>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="#">История</a></li>
+                        <li><a href="#">Сертификаты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Коллекции</h4>
+                    <ul>
+                        <li><a href="prices.html#rings">Кольца</a></li>
+                        <li><a href="prices.html#earrings">Серьги</a></li>
+                        <li><a href="prices.html#necklaces">Подвески</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Покупателям</h4>
+                    <ul>
+                        <li><a href="#">Доставка</a></li>
+                        <li><a href="#">Оплата</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>Алматы, ул. Фурманова, 100</li>
+                        <li>+7 (727) 345-67-89</li>
+                        <li>info@altyn.kz</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ALTYN JEWELRY</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
