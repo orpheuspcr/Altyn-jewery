@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты | ALTYN JEWELRY</title>
+    <title>О нас | ALTYN JEWELRY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -20,16 +20,13 @@
 
         :root {
             --gold: #C5A059;
-            --gold-dark: #A67C4E;
+            --dark-gold: #A67C4E;
             --black: #1E1E1E;
         }
 
         header {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            background: #0a0a0a;
             padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             border-bottom: 3px solid var(--gold);
         }
 
@@ -46,8 +43,8 @@
         }
 
         .logo {
-            font-size: 36px;
-            font-weight: 800;
+            font-size: 32px;
+            font-weight: bold;
             color: var(--gold);
             font-family: 'Times New Roman', serif;
         }
@@ -69,8 +66,7 @@
             text-decoration: none;
             font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
+            letter-spacing: 1px;
         }
 
         nav ul li a:hover {
@@ -78,223 +74,95 @@
         }
 
         .page-hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%),
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1531999850880-5c15b8d9f8f3?w=1600') center/cover;
             height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             color: white;
+            text-align: center;
         }
 
         .page-hero h1 {
-            font-size: 56px;
+            font-size: 48px;
             font-family: 'Times New Roman', serif;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--gold);
             margin-bottom: 10px;
         }
 
-        /* Контактная информация */
-        .contact-info-section {
-            padding: 60px 0;
+        .advantages-list {
+            list-style: none;
+            margin: 40px 0;
         }
 
-        .contact-info-card {
+        .advantages-list li {
+            padding: 15px;
+            margin-bottom: 10px;
             background: white;
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(197,160,89,0.2);
-            max-width: 800px;
-            margin: 0 auto; /* Это центрирует карточку по горизонтали */
-        }
-
-        .contact-info-card h2 {
-            font-size: 42px;
-            font-family: 'Times New Roman', serif;
-            margin-bottom: 40px;
-            color: var(--black);
-            text-align: center;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .contact-info-card h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        .contact-item {
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             display: flex;
             align-items: center;
-            margin: 30px 0;
-            padding: 20px;
-            background: #fcf9f7;
-            border-radius: 15px;
-            transition: 0.3s;
         }
 
-        .contact-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(197,160,89,0.2);
-        }
-
-        .contact-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 25px;
-            color: white;
-            font-size: 28px;
-            flex-shrink: 0; /* Иконка не сжимается */
-        }
-
-        .contact-details h3 {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: var(--black);
-        }
-
-        .contact-details p {
-            color: #666;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .contact-details a {
+        .advantages-list li i {
             color: var(--gold);
-            text-decoration: none;
+            margin-right: 15px;
             font-size: 20px;
-            font-weight: 600;
-        }
-
-        .work-hours {
-            margin-top: 40px;
-            padding: 30px;
-            background: linear-gradient(135deg, var(--black), #2a2a2a);
-            border-radius: 15px;
-            color: white;
-        }
-
-        .work-hours h3 {
-            color: var(--gold);
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        .work-hours p {
-            margin: 15px 0;
-            font-size: 18px;
-            text-align: center;
-        }
-
-        /* Форма обратной связи */
-        .form-section {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #fcf9f7, #fff);
-        }
-
-        .form-card {
-            background: white;
-            border-radius: 30px;
-            padding: 60px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            max-width: 900px;
-            margin: 0 auto; /* Центрирование */
-            border: 1px solid rgba(197,160,89,0.2);
-        }
-
-        .form-card h2 {
-            font-size: 42px;
-            font-family: 'Times New Roman', serif;
-            margin-bottom: 20px;
-            text-align: center;
-            color: var(--black);
-        }
-
-        .form-card h2 span {
-            color: var(--gold);
-        }
-
-        .form-card > p {
-            text-align: center;
-            color: #666;
-            margin-bottom: 50px;
-            font-size: 18px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 5px;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 18px 20px;
-            border: 2px solid #f0f0f0;
-            border-radius: 15px;
-            font-size: 16px;
-            transition: 0.3s;
-            background: #fcf9f7;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: white;
-            box-shadow: 0 5px 20px rgba(197,160,89,0.1);
-        }
-
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            font-size: 20px;
-            font-weight: 600;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 20px;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(197,160,89,0.4);
         }
 
         footer {
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            background: #0a0a0a;
             color: white;
             padding: 60px 0 20px;
             margin-top: 60px;
@@ -311,7 +179,6 @@
         .footer-col h4 {
             color: var(--gold);
             margin-bottom: 20px;
-            font-size: 18px;
         }
 
         .footer-col ul {
@@ -319,65 +186,23 @@
         }
 
         .footer-col ul li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-col ul li a {
             color: #999;
             text-decoration: none;
-            transition: 0.3s;
         }
 
         .footer-col ul li a:hover {
             color: var(--gold);
-            padding-left: 5px;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid #333;
             color: #666;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .contact-info-card,
-            .form-card {
-                padding: 30px 20px;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-            
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contact-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            .footer-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
     </style>
 </head>
@@ -400,92 +225,46 @@
     </header>
 
     <section class="page-hero">
-        <div>
-            <h1>Контакты</h1>
-            <p>Всегда рады видеть вас в нашем салоне</p>
-        </div>
+        <h1>О нашем салоне</h1>
     </section>
 
-    <!-- Контактная информация по центру -->
-    <section class="contact-info-section">
-        <div class="container">
-            <div class="contact-info-card">
-                <h2>Наши контакты</h2>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Адрес салона</h3>
-                        <p>г. Алматы, ул. Фурманова, 100<br>БЦ "Фурманов", 1 этаж</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Телефоны</h3>
-                        <p><a href="tel:+77273456789">+7 (727) 345-67-89</a></p>
-                        <p><a href="tel:+77012345678">+7 (701) 234-56-78</a> (WhatsApp)</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Email</h3>
-                        <p><a href="mailto:info@altyn.kz">info@altyn.kz</a></p>
-                        <p><a href="mailto:sales@altyn.kz">sales@altyn.kz</a></p>
-                    </div>
-                </div>
-
-                <div class="work-hours">
-                    <h3><i class="far fa-clock"></i> Режим работы</h3>
-                    <p>Понедельник - Суббота: 10:00 - 20:00</p>
-                    <p>Воскресенье: 11:00 - 18:00</p>
-                    <p style="color: var(--gold); margin-top: 15px;">Без выходных</p>
-                </div>
+    <div class="container section">
+        <div class="about-grid">
+            <div class="about-image">
+            <div class="about-text">
+                <h2>ALTYN JEWELRY</h2>
+                <p>Ювелирный салон ALTYN работает на рынке Казахстана с 2010 года. За это время мы заслужили доверие тысяч клиентов благодаря безупречному качеству и индивидуальному подходу.</p>
+                <p>Мы сотрудничаем напрямую с производителями из Европы и ОАЭ, что позволяет нам предлагать лучшие цены в Казахстане. Все наши изделия имеют сертификаты качества.</p>
+                <p>В нашем салоне вы найдете уникальные украшения ручной работы, а также сможете заказать изделие по собственному дизайну.</p>
             </div>
         </div>
-    </section>
 
-    <!-- Форма обратной связи по центру -->
-    <section class="form-section">
-        <div class="container">
-            <div class="form-card">
-                <h2>Свяжитесь <span>с нами</span></h2>
-                <p>Оставьте ваши контакты и мы свяжемся с вами в ближайшее время</p>
-                
-                <form class="form-grid" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Ваше имя *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Телефон *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Город">
-                    </div>
-                    <div class="form-group full-width">
-                        <textarea placeholder="Ваше сообщение *" required></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-paper-plane"></i> Отправить сообщение
-                        </button>
-                    </div>
-                </form>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div>лет на рынке</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div>довольных клиентов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div>уникальных изделий</div>
             </div>
         </div>
-    </section>
+
+        <h2 style="text-align: center; margin: 40px 0; font-family: 'Times New Roman', serif;">Наши преимущества</h2>
+        
+        <ul class="advantages-list">
+            <li><i class="fas fa-gem"></i> Только сертифицированные драгоценные камни</li>
+            <li><i class="fas fa-truck"></i> Бесплатная доставка по Казахстану</li>
+            <li><i class="fas fa-shield-alt"></i> Пожизненная гарантия на все изделия</li>
+            <li><i class="fas fa-paint-brush"></i> Изготовление украшений на заказ</li>
+            <li><i class="fas fa-star"></i> Бесплатная чистка и полировка</li>
+            <li><i class="fas fa-credit-card"></i> Рассрочка и кредит без переплаты</li>
+        </ul>
+    </div>
 
     <footer>
         <div class="container">
@@ -517,25 +296,16 @@
                 <div class="footer-col">
                     <h4>Контакты</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Алматы, ул. Фурманова, 100</li>
-                        <li><i class="fas fa-phone"></i> +7 (727) 345-67-89</li>
-                        <li><i class="fas fa-envelope"></i> info@altyn.kz</li>
+                        <li>Алматы, ул. Фурманова, 100</li>
+                        <li>+7 (727) 345-67-89</li>
+                        <li>info@altyn.kz</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 ALTYN JEWELRY. Ювелирный салон в Алматы</p>
+                <p>© 2026 ALTYN JEWELRY</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Обработка отправки формы
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-            this.reset();
-        });
-    </script>
 </body>
 </html>
